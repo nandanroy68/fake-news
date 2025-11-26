@@ -95,5 +95,47 @@ And produces a final verdict:
                        │
      ┌─────────────────▼──────────────────┐
      │        final decision maker        │
-     └─────────────────┬──────────────────┘
+     └───────────────────────────────────┘
 
+
+     ## 🔧 **Setup Instructions**
+
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+```
+### **2. Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+### **3. Add API Keys**
+
+Create a .env file:
+NEWS_API_KEY=xxxx
+SERPAPI_KEY=xxxx
+GDELT_API_KEY=xxxx
+
+### **Example Code**
+from main import verify_news
+
+result = verify_news("The moon is made of cheese.")
+print(result)
+**output:**
+{
+  "classifier": "Fake",
+  "evidence_check": "Refuted",
+  "credibility_score": 0.12,
+  "final_verdict": "Likely Fake"
+}
+
+# 🧪 Future Improvements
+
+Integration with Large Language Models (LLMs)
+
+Automated browser-based evidence search
+
+Multilingual news verification
+
+Real-time social media stream analysis (Twitter/Reddit)
