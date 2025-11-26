@@ -118,17 +118,21 @@ SERPAPI_KEY=xxxx
 GDELT_API_KEY=xxxx
 
 ### **Example Code**
+```
 from main import verify_news
 
 result = verify_news("The moon is made of cheese.")
 print(result)
+```
 **output:**
+```
 {
   "classifier": "Fake",
   "evidence_check": "Refuted",
   "credibility_score": 0.12,
   "final_verdict": "Likely Fake"
 }
+```
 
 # 🧪 Future Improvements
 
