@@ -1,87 +1,70 @@
-🚀 Customer Support Agent Simulator
-Retrieval-Augmented AI Support Agent with Sentiment Analysis, Escalation Logic & Multi-Turn Memory
+# 📘 **FactLens: Intelligent Fake News Verification System**
 
-This project is a production-ready GenAI-powered customer support system that uses:
+FactLens is a hybrid **AI-powered fake news verification system** that goes beyond traditional machine-learning classifiers.  
+Instead of relying only on trained data, FactLens performs **dynamic fact-checking** by retrieving real-time evidence from the web, evaluating source credibility, and using advanced **Natural Language Inference (NLI)** models to determine whether a claim is *Supported*, *Refuted*, or *Unverified*.
 
-Retrieval-Augmented Generation (RAG)
+---
 
-LangChain
+## 🚀 **Project Overview**
 
-FAISS vector search
+Traditional fake news classifiers can only predict based on previously seen patterns.  
+FactLens solves this limitation by combining:
 
-FastAPI backend
+- **NLP Claim Extraction**
+- **Web Search & Evidence Retrieval**
+- **Source Reliability Analysis**
+- **NLI-Based Fact Verification**
+- **Deep Learning Fake News Classification**
+- **(Optional) Multi-Modal Verification for Images & Videos**
 
-Redis conversation memory
+This provides a **robust, real-world truth assessment engine** suitable for modern misinformation challenges.
 
-Sentiment analysis (Transformers)
+---
 
-Escalation triggers
+## 🎯 **Key Features**
 
-React (Vite) frontend
+### ✅ **1. Claim Extraction**
+Extracts the core claim from raw text using summarization models (BART/T5).
 
-It simulates a real-world AI support agent capable of answering customer queries using uploaded PDFs, FAQs, and manuals — with human-like empathy and safe fallback behaviors.
+### ✅ **2. Web Search Integration**
+Fetches real-time news data via:
+- NewsAPI  
+- SerpAPI (Google Search)  
+- GDELT / EventRegistry  
 
-⭐ Features
-🔍 RAG-Based Question Answering
+### ✅ **3. Source Reliability Check**
+Includes a customizable credibility database with:
+- Trustworthy outlets  
+- Known misinformation sources  
+- Satire/hoax websites  
 
-Uses FAISS + OpenAI embeddings + LangChain retrieval pipeline to fetch relevant chunks from manuals, FAQs, resumes, etc.
+### ✅ **4. Fact Verification Using NLI**
+Uses state-of-the-art NLI models to determine:
+- **Supported**
+- **Refuted**
+- **Not Enough Evidence**
 
-🧠 Multi-Turn Memory (Redis)
+### ✅ **5. Deep Learning Classifier (RoBERTa)**
+Fine-tuned on curated real/fake datasets + synthetic absurd/satire claims for generalization.
 
-Every user session maintains context across messages to enable coherent conversation.
+### ✅ **6. Multi-Modal Verification (Optional)**
+Image and video fact-checking via:
+- Reverse image search  
+- Google Vision API  
+- Deepfake detection models  
 
-😊 Sentiment-Aware Responses
+### ✅ **7. Final Truth Scoring**
+Combines:
+- Classifier score  
+- Source credibility score  
+- Cross-verification result  
 
-Detects:
+And produces a final verdict:
+- **Likely Real**
+- **Likely Fake**
+- **Needs Verification**
 
-positive
+---
 
-neutral
+## 🏗️ **System Architecture**
 
-negative
-
-frustrated
-
-angry
-
-Adjusts tone automatically based on emotion.
-
-🚨 Automatic Escalation
-
-Triggers when:
-
-confidence < threshold
-
-negative/frustrated/angry sentiment
-
-refund/return/complaint keywords appear
-
-📄 Document Ingestion System
-
-Upload PDFs, DOCX, TXT, MD → automatically chunked, embedded, and indexed into FAISS.
-
-💬 React Frontend (Vite)
-
-Modern chat UI with:
-
-real-time messages
-
-confidence scores
-
-source citations
-
-sentiment badges
-
-escalation warnings
-
-file ingestion page
-
-🐳 Dockerized Deployment
-
-docker-compose up --build launches:
-
-API
-
-Redis
-
-Frontend
